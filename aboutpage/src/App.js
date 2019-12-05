@@ -16,28 +16,26 @@ import './App.css';
 // Don't merge this into master!
 // - Perhaps make a "prototypes" branch which we can push to.
 
-var thePic = "https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg";
+var thePic = <img id="picture" src="https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg" className="picture"/>;
 
 function setPicture(val)
 {
-  {thePic = val};
+  thePic = <img id="picture" src={val} className="picture"/>;
 }
 
-
-
-function App() 
+function App()
 {  
   return(
     <div id="root" className="About">
 
       <header className="App-header">
 
-        <img id="logo" src= "https://www.avas-angels.com/images/HiResLogo.png" />
+        <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" />
 
-        <img id="picture" src= {thePic} className="picture"/>
+        {thePic}
 
-        <button class="right-button" onclick={leftSwipe()}> > </button>
-        <button class="left-button" onclick={rightSwipe()}> &lt; </button>
+        <button class="right-button" onclick={setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg")}> > </button>
+        <button class="left-button" onclick={setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg")}> &lt; </button>
 
         <p> Edit <code> src/App.js </code> and save to reload. </p>
 
@@ -45,20 +43,6 @@ function App()
 
     </div>
   );
-}
-
-function leftSwipe()
-{
-  //document.getElementById('picture').src=
-  //"https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
-  setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg");
-}
-
-function rightSwipe()
-{
-  //document.getElementById("picture").src=
-  //"https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
-  setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg");
 }
 
 export default App;
