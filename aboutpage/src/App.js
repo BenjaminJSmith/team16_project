@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
 
 //PROTOTYPE:
 //Have 3 or 4 JSON with information about restaurants / facilities
@@ -18,36 +16,45 @@ import * as serviceWorker from './serviceWorker';
 // Don't merge this into master!
 // - Perhaps make a "prototypes" branch which we can push to.
 
-var thePic = <img id="picture" src="https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg" className="picture" alt="Bunk bar" />;
-
-function setPicture(imgSrc, altSrc)
+class AboutPage extends React.Component
 {
-  thePic = <img id="picture" src={imgSrc} className="picture"  alt={altSrc}/>;
+  //Array constructor - I found this code online. It uses... magic.
+  constructor(props)
+  {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() //Handles button clicks - sets new picture src. and alts.
+  {
+    document.getElementById("picture").src = "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg";
+    document.getElementById("picture").alt = "Nandos Peri Peri Chicken restaurant";
+  }
+
+  render()  //Render function.
+  {
+    return(
+      <div id="root" className="About">
+  
+        <header className="App-header">
+  
+          <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" alt="Ava's Angels logo"/>
+  
+          <img id="picture" src="https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg" className="picture" alt="Bunk bar" />{document.getElementById("picture")}
+  
+          <button onClick={this.handleClick} className="right-button"> > </button>
+          <button onClick={this.handleClick} className="left-button"> &lt; </button>
+  
+          <p id="text"> restaurant! </p>
+  
+        </header>
+  
+      </div>
+    );
+  }
 }
 
-function App()
-{  
-  return(
-    <div id="root" className="About">
-
-      <header className="App-header">
-
-        <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" alt="Ava's Angels logo"/>
-
-        {thePic}
-
-        <button class="right-button" onclick={setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg", "Nandos chicken restaurant")}> > </button>
-        <button class="left-button" onclick={setPicture("https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg", "Nandos chicken restaurant")}> &lt; </button>
-
-        <p> Edit <code> src/App.js </code> and save to reload. </p>
-
-      </header>
-
-    </div>
-  );
-}
-
-ReactDOM.render(App(), document.getElementById('root'));
-serviceWorker.unregister();
+export default AboutPage;
 
 //http://10.20.30.140:3000/
