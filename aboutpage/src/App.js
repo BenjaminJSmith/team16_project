@@ -22,59 +22,68 @@ class AboutPage extends React.Component
   constructor(props)
   {
     super(props);
+    this.index = 0; //Indexing the arrays
+    this.imageArray = ["https://twistedsifter.files.wordpress.com/2012/09/art-deco-mcdonalds-clifton-hill-victoria-australia.jpg","https://www.pymnts.com/wp-content/uploads/2018/07/shutterstock_497368633.jpg","https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg", "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg"]
+    this.descriptionArray = ["McDonalds fast food restaurant","Pizza Hut Pizza restaurant","Bunk bar - chicken wings and cocktails", "Nandos peri peri chicken restaurant"]
+    
   }
-
-  leftClick(index, imageArray)
+  
+  state = 
+  { 
+    text: 'Unpressed!' 
+  }
+  
+  leftClick = () => 
   {
-    if(index > 0)
+    if(this.index > 0)
     {
-      index--;
+      this.index--;
     }
-
-    document.getElementById("picture").src = imageArray[index];
-    return index;
+    else
+    {
+      this.index = 3;
+    }
+    
+    this.setState = ({ text: 'Left clicked!' });
+    document.getElementById("picture").src = this.imageArray[this.index];
   }
-
-  rightClick(index, imageArray)
+  
+  rightClick = () =>
   {
-    if(index < 3)
+    if(this.index < 3)
     {
-      index++;
+      this.index++;
     }
-
-    document.getElementById("picture").src = imageArray[index];
-    return index;
+    else
+    {
+      this.index = 0;
+    }
+    
+    this.setState = ({ text: 'Right clicked!' });
+    document.getElementById("picture").src = this.imageArray[this.index];
   }
-
+  
   render()  //Render function.
   {
-    let index = 0;
-    //`let` does allow reassignment
-
-    //`const` does not allow reassignment
-    const imageArray = ["https://twistedsifter.files.wordpress.com/2012/09/art-deco-mcdonalds-clifton-hill-victoria-australia.jpg","https://www.pymnts.com/wp-content/uploads/2018/07/shutterstock_497368633.jpg","https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg", "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg"]
-    const descriptionArray = ["McDonalds fast food restaurant","Pizza Hut Pizza restaurant","Bunk bar - chicken wings and cocktails", "Nandos peri peri chicken restaurant"]
-
-
     return(
       <div id="root" className="About">
         <header className="App-header">
-  
-
+        
+        
         
           <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" alt="Ava's Angels logo"/>
-  
-
-          <img id="picture" src= { imageArray[index] } className="picture" alt="Bunk bar" />{document.getElementById("picture")}
-  
-
-          <button onClick={this.rightClick.bind(this, index, imageArray)} className="right-button"> > </button>
-          <button onClick={this.leftClick.bind(this, index, imageArray)} className="left-button"> &lt; </button>
-  
-          <p id="text"> restaurant! </p>
-  
-
-
+        
+        
+          <img id="picture" src= { this.imageArray[this.index] } className="picture" alt="Bunk bar" />{document.getElementById("picture")}
+        
+        
+          <button onClick= { this.rightClick.bind(this) } className="right-button"> >   </button>
+          <button onClick= { this.leftClick.bind(this)  } className="left-button"> &lt; </button>
+        
+          <h1 id="text"> { this.state.text } </h1>
+        
+        
+        
         </header>
       </div>
     );
