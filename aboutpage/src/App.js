@@ -21,15 +21,13 @@ class AboutPage extends React.Component
   //Array constructor - I found this code online. It uses... magic.
   constructor(props)
   {
-    super(props);
+    super(props);   //Something to do with the inheriting class
     this.index = 0; //Indexing the arrays
     this.imageArray = ["https://twistedsifter.files.wordpress.com/2012/09/art-deco-mcdonalds-clifton-hill-victoria-australia.jpg","https://www.pymnts.com/wp-content/uploads/2018/07/shutterstock_497368633.jpg","https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg", "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg"]
-    this.descriptionArray = ["McDonalds fast food restaurant","Pizza Hut Pizza restaurant","Bunk bar - chicken wings and cocktails", "Nandos peri peri chicken restaurant"]
-    
+    this.descriptionArray = ["McDonalds fast food restaurant","Pizza Hut Pizza restaurant","Bunk bar - chicken wings and cocktails", "Nandos peri peri chicken restaurant"];
   }
   
-  state = 
-  { 
+  state = { 
     text: 'Unpressed!' 
   }
   
@@ -65,7 +63,11 @@ class AboutPage extends React.Component
   
   render()  //Render function.
   {
+    let {text} = this.state;
+
     return(
+      
+      
       <div id="root" className="About">
         <header className="App-header">
         
@@ -73,14 +75,13 @@ class AboutPage extends React.Component
         
           <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" alt="Ava's Angels logo"/>
         
-        
-          <img id="picture" src= { this.imageArray[this.index] } className="picture" alt="Bunk bar" />{document.getElementById("picture")}
+          <img id="picture" src= { this.imageArray[this.index] } className="picture" alt="Bunk bar" />
         
         
           <button onClick= { this.rightClick.bind(this) } className="right-button"> >   </button>
           <button onClick= { this.leftClick.bind(this)  } className="left-button"> &lt; </button>
         
-          <h1 id="text"> { this.state.text } </h1>
+          <p> { text } </p>
         
         
         
