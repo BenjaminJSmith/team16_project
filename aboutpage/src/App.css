@@ -3,41 +3,62 @@
   text-align: center;
 }
 
-.button
+.App-header 
 {
-  background-color: rgba(24, 24, 24, 0.5);
-  height: 3vmin;
-  width: 3vmin;
-  padding: 3%;
-  text-align: center;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 100px, 100px, 100px;
+  grid-template-rows: 100px, 100px, 30px, 100px;
+  font-size: calc(10px + 2vmin);
+  color: #000000;
+}
+
+button
+{
+  margin: auto;
+  background-color: rgb(160, 89, 89);
   border-radius: 100%;
+  padding: 20px;
+  grid-row: 3;
+}
+
+p
+{
+  margin: auto; 
+  grid-column: 2;
+  grid-row: 4
+}
+
+.logo
+{
+  margin: auto;
+  grid-column: 2;
+  grid-row: 1;
+  height: 25vmin;
 }
 
 .left-button
 {
+  grid-column: 1;  
+  background-color: rgb(160, 89, 89);
   border-radius: 100%;
   width: 30px;
 }
 
 .right-button
 {
+  grid-column: 3;
+  background-color: rgb(160, 89, 89);
   border-radius: 100%;
   width: 30px;
 }
 
 .picture 
 {
+  max-width: 1000px;
+  margin: auto;
+  grid-column: 2;
+  grid-row: 2;
   height: 30vmin;
-}
-
-.App-header 
-{
-  background-color: #FFFFFF;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #000000;
 }

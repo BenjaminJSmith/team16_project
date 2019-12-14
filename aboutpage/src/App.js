@@ -68,7 +68,7 @@ class AboutPage extends React.Component
         
         
         
-          <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" alt="Ava's Angels logo"/>
+          <img id="logo" src = "https://www.avas-angels.com/images/HiResLogo.png" className="logo" alt="Ava's Angels logo"/>
         
           <img id="picture" src= { this.imageArray[this.index] } className="picture" alt="Bunk bar" />
         
