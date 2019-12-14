@@ -25,10 +25,7 @@ class AboutPage extends React.Component
     this.index = 0; //Indexing the arrays
     this.imageArray = ["https://twistedsifter.files.wordpress.com/2012/09/art-deco-mcdonalds-clifton-hill-victoria-australia.jpg","https://www.pymnts.com/wp-content/uploads/2018/07/shutterstock_497368633.jpg","https://www.bunkwings.com/wp-content/uploads/2015/07/bunk-cocktails-and-wings-nottingham172.jpg", "https://media-cdn.tripadvisor.com/media/photo-s/0b/54/56/b7/aldershot-nando-s.jpg"]
     this.descriptionArray = ["McDonalds fast food restaurant","Pizza Hut Pizza restaurant","Bunk bar - chicken wings and cocktails", "Nandos peri peri chicken restaurant"];
-  }
-  
-  state = { 
-    text: 'Unpressed!' 
+    this.state = { text: this.descriptionArray[this.index] }
   }
   
   leftClick = () => 
@@ -42,7 +39,7 @@ class AboutPage extends React.Component
       this.index = 3;
     }
     
-    this.setState = ({ text: 'Left clicked!' });
+    this.setState({ text: this.descriptionArray[this.index] });
     document.getElementById("picture").src = this.imageArray[this.index];
   }
   
@@ -57,14 +54,12 @@ class AboutPage extends React.Component
       this.index = 0;
     }
     
-    this.setState = ({ text: 'Right clicked!' });
+    this.setState({ text: this.descriptionArray[this.index] });
     document.getElementById("picture").src = this.imageArray[this.index];
   }
   
   render()  //Render function.
   {
-    let {text} = this.state;
-
     return(
       
       
@@ -78,10 +73,10 @@ class AboutPage extends React.Component
           <img id="picture" src= { this.imageArray[this.index] } className="picture" alt="Bunk bar" />
         
         
-          <button onClick= { this.rightClick.bind(this) } className="right-button"> >   </button>
-          <button onClick= { this.leftClick.bind(this)  } className="left-button"> &lt; </button>
+          <button onClick= { this.rightClick } className="right-button"> >   </button>
+          <button onClick= { this.leftClick  } className="left-button"> &lt; </button>
         
-          <p> { text } </p>
+          <p> {this.state.text} </p>
         
         
         
@@ -90,6 +85,8 @@ class AboutPage extends React.Component
     );
   }
 }
+
+//.bind(this)
 
 export default AboutPage;
 
