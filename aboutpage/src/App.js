@@ -21,13 +21,14 @@ class AboutPage extends React.Component {
     this.state = { text: this.descriptionArray[this.index] }; //State updates label text
   }
 
-  leftClick = () => { //Function for left clicks
+  leftClick = () => {   //Function for left clicks
     if (this.index > 0) {
-      this.index--;
+      this.index--;   
     } else {
       this.index = 3;
     }
 
+    console.log("Left click 🔥, index is " + index);
     this.setState({ text: this.descriptionArray[this.index] });
     document.getElementById("picture").src = this.imageArray[this.index];
   };
@@ -39,6 +40,7 @@ class AboutPage extends React.Component {
       this.index = 0;
     }
 
+    console.log("right click 🔥, index is " + index);
     this.setState({ text: this.descriptionArray[this.index] });
     document.getElementById("picture").src = this.imageArray[this.index];
   };

@@ -1,11 +1,9 @@
-.App 
-{
+.App {
   text-align: center;
 }
 
-.App-header 
-{
-  background-color: #FFFFFF;
+.App-header {
+  background-color: #ffffff;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 100px, 100px, 100px;
@@ -14,8 +12,7 @@
   color: #000000;
 }
 
-button
-{
+button {
   margin: auto;
   background-color: rgb(160, 89, 89);
   border-radius: 100%;
@@ -23,39 +20,34 @@ button
   grid-row: 3;
 }
 
-p
-{
-  margin: auto; 
+p {
+  margin: auto;
   grid-column: 2;
-  grid-row: 4
+  grid-row: 4;
 }
 
-.logo
-{
+.logo {
   margin: auto;
   grid-column: 2;
   grid-row: 1;
   height: 25vmin;
 }
 
-.left-button
-{
-  grid-column: 1;  
+.left-button {
+  grid-column: 1;
   background-color: rgb(160, 89, 89);
   border-radius: 100%;
   width: 30px;
 }
 
-.right-button
-{
+.right-button {
   grid-column: 3;
   background-color: rgb(160, 89, 89);
   border-radius: 100%;
   width: 30px;
 }
 
-.picture 
-{
+.picture {
   max-width: 1000px;
   margin: auto;
   grid-column: 2;
