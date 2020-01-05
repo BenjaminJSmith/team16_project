@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #dfdfdf;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 100px, 100px, 100px;
@@ -14,10 +14,14 @@
 
 button {
   margin: auto;
-  background-color: rgb(160, 89, 89);
+  background-color: rgb(161, 161, 161);
   border-radius: 100%;
-  padding: 50px;
+  width: 30px;
+  padding: 42px;
   grid-row: 3;
+  box-shadow:
+      -12px  -12px  -12px 0 rgba(255, 174, 0, 0.3),
+      12px 12px 12px 0 rgba(255, 1, 157, 0.75);
 }
 
 p {
@@ -35,16 +39,10 @@ p {
 
 .left-button {
   grid-column: 1;
-  background-color: rgb(160, 89, 89);
-  border-radius: 100%;
-  width: 30px;
 }
 
 .right-button {
   grid-column: 3;
-  background-color: rgb(160, 89, 89);
-  border-radius: 100%;
-  width: 30px;
 }
 
 .picture {
